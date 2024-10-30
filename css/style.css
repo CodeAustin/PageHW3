@@ -1,72 +1,164 @@
+/*
+REMAKE EVERYTHING HERE
+*/
+
 body {
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Start from top */
-    min-height: 100vh; /* Allows for page growth with larger tables */
-    margin: 0;
-    padding: 20px; /* Adds padding around the viewport for larger tables */
+    margin: 10px;
+    padding: 10px;
     background-color: #f3f4f6;
-    overflow-x: auto; /* Enables horizontal scrolling for very wide tables */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 125px; /* Offset to avoid content behind the fixed form */
+    padding: 20px;
+}
+
+.container h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
 }
 
 .form-container {
-    max-width: 500px;
-    padding: 30px 50px 30px 25px;
+    width: 180px;
+    padding: 30px 30px;
+    min-height: 100%;
     background-color: white;
-    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px; /* Adds spacing between form and table */
-}
-
-.form-container h2 {
-    margin-bottom: 20px;
-    color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .form-container h5 {
-    margin: 10px 0;
     font-size: small;
     font-style: italic;
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 10%;
 }
 
 label {
     display: block;
-    margin-bottom: 5px;
     font-weight: bold;
 }
 
 input[type="number"] {
-    width: 100%;
-    padding: 10px;
+    width: 70%;
+    padding: 3px;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 5px;
     font-size: 16px;
 }
 
 .error {
     color: red;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 #table-container {
-    overflow-x: auto; /* Allows table to scroll horizontally if too wide */
-    margin-top: 20px;
-}
-
-table {
+    overflow: auto; 
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
+    max-height: 80vh; 
 }
 
+/* Table styling */
+table {
+    border-collapse: collapse;
+    width: 100%; /* Ensures table takes full width */
+}
+
+/* Header and cells styling */
 th, td {
-    padding: 8px;
+    padding: 0px;
     border: 1px solid #ddd;
     text-align: center;
-    min-width: 80px; /* Ensures cells have minimum width */
+    min-width: 100px;
+}
+
+/* Uniform color for header */
+th {
+    background-color: #007BFF; /* Column header color */
+    color: white;
+    position: sticky; /* Makes header sticky */
+    top: 0; /* Fixes the header to the top when scrolling */
+    z-index: 10; /* Ensures header row stays above other content */
+}
+
+/* Default cell background */
+td {
+    background-color: #FFFFFF; /* Default cell background */
+}
+
+/* Alternating colors for table cells */
+tr:nth-child(odd) td {
+    background-color: #D0E9FF; /* Light blue for odd rows */
+}
+
+/* First column fixed styling */
+table tbody td:first-child {
+    position: sticky;
+    left: 0; /* Fixes the first column to the left when scrolling */
+    background-color: #007BFF; /* Color for the first column */
+    color: white;
+    z-index: 9; /* Ensures first column stays above other cells */
+}
+
+/* Hover effect for table rows and columns */
+table tbody tr:hover {
+    background-color: #A3C1DA; /* Lighter blue for hovered rows */
+}
+
+/* Highlight entire column on hover */
+table td:hover {
+    background-color: #A3C1DA; /* Lighter blue for hovered columns */
+}
+
+/* Keep first column color when hovering over it */
+table tbody td:hover {
+    background-color: #007BFF; /* Keep first column color when hovering */
+}
+
+/* Highlight entire row and column on hover */
+table tbody tr:hover td,
+table tbody td:hover {
+    background-color: #A3C1DA; /* Lighter blue for hovered cells */
+}
+
+/* Ensure headers are always visible */
+thead th {
+    position: sticky; 
+    top: 0; 
+    background-color: #007BFF; 
+    color: white; 
+    z-index: 10; 
+}
+
+/* First column header sticky */
+tbody td:first-child {
+    position: sticky;
+    left: 0;
+    background-color: #007BFF; /* First column background color */
+    color: white;
+    z-index: 9; /* Ensures first column stays above other cells */
+}
+
+/* Prevent content from being obscured by the header */
+tr {
+    height: 40px; /* Adjust height as necessary */
+}
+
+/* Make sure the first row has no first cell value */
+table tbody tr:first-child td:first-child {
+    visibility: hidden; /* Hide the top left cell */
+    background-color: transparent; /* Ensure it's transparent */
+}
+
+
+table thead tr th {
+    visibility: hidden;
 }
