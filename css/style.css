@@ -1,7 +1,3 @@
-/*
-REMAKE EVERYTHING HERE
-*/
-
 body {
     font-family: Arial, sans-serif;
     margin: 10px;
@@ -12,7 +8,7 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    margin-left: 125px; /* Offset to avoid content behind the fixed form */
+    margin-left: 125px;
     padding: 20px;
 }
 
@@ -25,140 +21,109 @@ body {
 .form-container {
     width: 180px;
     padding: 30px 30px;
-    min-height: 100%;
+    min-height: 80%;
     background-color: white;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 20px;
+    left: 20px;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    color: #333;
 }
 
 .form-container h5 {
+    margin: 10px 0;
     font-size: small;
     font-style: italic;
 }
 
 .form-group {
-    margin-bottom: 10%;
+    margin-bottom: 15px;
 }
 
 label {
     display: block;
+    margin-bottom: 5px;
     font-weight: bold;
 }
 
 input[type="number"] {
-    width: 70%;
-    padding: 3px;
+    width: 100px;
+    padding: 5px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 4px;
     font-size: 16px;
 }
 
 .error {
     color: red;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 #table-container {
-    overflow: auto; 
+    overflow: auto;
     width: 100%;
-    max-height: 80vh; 
+    max-height: 80vh;
 }
 
 /* Table styling */
 table {
     border-collapse: collapse;
-    width: 100%; /* Ensures table takes full width */
+    table-layout: fixed; /* Ensures cells maintain a fixed width */
+    width: 100%;
+    border-spacing: 0;
 }
 
-/* Header and cells styling */
-th, td {
-    padding: 0px;
-    border: 1px solid #ddd;
+/* Set fixed square shape for all cells */
+#colHeader, #rowHeader, #value, #starValue {
+    padding: 0;
+    border: none;
     text-align: center;
-    min-width: 100px;
+    width: 60px; /* Fixed width for square shape */
+    height: 60px; /* Fixed height for square shape */
 }
 
-/* Uniform color for header */
-th {
-    background-color: #007BFF; /* Column header color */
-    color: white;
-    position: sticky; /* Makes header sticky */
-    top: 0; /* Fixes the header to the top when scrolling */
-    z-index: 10; /* Ensures header row stays above other content */
-}
-
-/* Default cell background */
-td {
-    background-color: #FFFFFF; /* Default cell background */
-}
-
-/* Alternating colors for table cells */
-tr:nth-child(odd) td {
-    background-color: #D0E9FF; /* Light blue for odd rows */
-}
-
-/* First column fixed styling */
-table tbody td:first-child {
+/* Styling for the top-left corner cell */
+#starValue {
+    background-color: #f3f4f6; /* Matches body background color */
     position: sticky;
-    left: 0; /* Fixes the first column to the left when scrolling */
-    background-color: #007BFF; /* Color for the first column */
+    top: 0;
+    left: 0;
+    z-index: 11; /* Higher than headers to cover intersection */
+}
+
+/* Column headers */
+#colHeader {
+    background-color: #007BFF;
     color: white;
-    z-index: 9; /* Ensures first column stays above other cells */
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-/* Hover effect for table rows and columns */
-table tbody tr:hover {
-    background-color: #A3C1DA; /* Lighter blue for hovered rows */
-}
-
-/* Highlight entire column on hover */
-table td:hover {
-    background-color: #A3C1DA; /* Lighter blue for hovered columns */
-}
-
-/* Keep first column color when hovering over it */
-table tbody td:hover {
-    background-color: #007BFF; /* Keep first column color when hovering */
-}
-
-/* Highlight entire row and column on hover */
-table tbody tr:hover td,
-table tbody td:hover {
-    background-color: #A3C1DA; /* Lighter blue for hovered cells */
-}
-
-/* Ensure headers are always visible */
-thead th {
-    position: sticky; 
-    top: 0; 
-    background-color: #007BFF; 
-    color: white; 
-    z-index: 10; 
-}
-
-/* First column header sticky */
-tbody td:first-child {
+/* Row headers */
+#rowHeader {
+    background-color: #007BFF;
+    color: white;
     position: sticky;
     left: 0;
-    background-color: #007BFF; /* First column background color */
-    color: white;
-    z-index: 9; /* Ensures first column stays above other cells */
+    z-index: 9;
+}
+
+/* Checkerboard pattern for values */
+#value {
+    background-color: #FFFFFF;
+}
+table tr:nth-child(odd) #value:nth-child(even),
+table tr:nth-child(even) #value:nth-child(odd) {
+    background-color: #D0E9FF; /* Light blue for alternating cells */
 }
 
 /* Prevent content from being obscured by the header */
 tr {
-    height: 40px; /* Adjust height as necessary */
-}
-
-/* Make sure the first row has no first cell value */
-table tbody tr:first-child td:first-child {
-    visibility: hidden; /* Hide the top left cell */
-    background-color: transparent; /* Ensure it's transparent */
-}
-
-
-table thead tr th {
-    visibility: hidden;
+    height: 60px; /* Adjust to keep cells square */
 }

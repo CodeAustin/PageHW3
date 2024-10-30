@@ -26,10 +26,27 @@ function generateTable() {
         return;
     }
 
+    // Error handling: Check if min values are greater than max values
+    
+    if (minCol > maxCol && minRow > maxRow) {
+        document.getElementById("error-message").innerText = "Minimum values must be less than maximum values.";
+        return;
+    }
+
+    if (minCol > maxCol ) {
+        document.getElementById("error-message").innerText = "Minimum column values must be less than maximum values.";
+        return;
+    } 
+
+    if (minRow > maxRow ) {
+        document.getElementById("error-message").innerText = "Minimum row values must be less than maximum values.";
+        return;
+    }
+
     // Create a table with dynamic range based on minCol, maxCol, minRow, and maxRow
     // Additionally, set id's for row and column headers as well as values
     // This will allow for more helpful CSS styling and JS manipulation later on
-    let table = '<table><tr><th id="starValue">*</th>';
+    let table = '<table><tr><th id="starValue"></th>';
 
     // Create column headers
     for (let col = minCol; col <= maxCol; col++) {
