@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Start from top */
+    min-height: 100vh; /* Allows for page growth with larger tables */
+    margin: 0;
+    padding: 20px; /* Adds padding around the viewport for larger tables */
+    background-color: #f3f4f6;
+    overflow-x: auto; /* Enables horizontal scrolling for very wide tables */
+}
+
+.form-container {
+    max-width: 500px;
+    padding: 30px 50px 30px 25px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px; /* Adds spacing between form and table */
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-container h5 {
+    margin: 10px 0;
+    font-size: small;
+    font-style: italic;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+#table-container {
+    overflow-x: auto; /* Allows table to scroll horizontally if too wide */
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+    min-width: 80px; /* Ensures cells have minimum width */
+}
