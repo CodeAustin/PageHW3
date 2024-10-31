@@ -55,7 +55,6 @@ function generateTable() {
         document.getElementById("error-message").innerText = "All numbers must be between -50 and 50.";
         return;
     }
-
     
     // Validate if min values are less than max values, return an appropriate error message
     if (minCol > maxCol && minRow > maxRow) {
