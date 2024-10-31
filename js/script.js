@@ -39,6 +39,7 @@ function generateTable() {
     https://www.w3schools.com/jsref/prop_text_innertext.asp
     https://www.w3schools.com/jsref/prop_html_innerhtml.asp
     */
+
     document.getElementById("error-message").innerText = "";
     document.getElementById("table-container").innerHTML = "";
     
@@ -49,7 +50,11 @@ function generateTable() {
     }
 
     // Validate if inputs are between -50 and 50, return an appropriate error message
-    if ((-50 < minCol < 50) || (-50 < maxCol < 50) || (-50 < minRow < 50) || (-50 < maxRow < 50)) {
+    if (minCol > 50 || maxCol > 50 || minRow > 50 || maxRow > 50) {
+        document.getElementById("error-message").innerText = "All numbers must be between -50 and 50.";
+        return;
+    }
+    if ((-50 > minCol ) || (-50 > maxCol) || (-50 > minRow) || (-50 > maxRow)) {
         document.getElementById("error-message").innerText = "All numbers must be between -50 and 50.";
         return;
     }
