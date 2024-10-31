@@ -39,9 +39,6 @@ function generateTable() {
     https://www.w3schools.com/jsref/prop_text_innertext.asp
     https://www.w3schools.com/jsref/prop_html_innerhtml.asp
     */
-
-    document.getElementById("error-message").innerText = "";
-    document.getElementById("table-container").innerHTML = "";
     
     // Check if any input is invalid, return an appropriate error message
     if (isNaN(minCol) || isNaN(maxCol) || isNaN(minRow) || isNaN(maxRow)) {
@@ -54,10 +51,11 @@ function generateTable() {
         document.getElementById("error-message").innerText = "All numbers must be between -50 and 50.";
         return;
     }
-    if ((-50 > minCol ) || (-50 > maxCol) || (-50 > minRow) || (-50 > maxRow)) {
+    if (minCol < -50 || maxCol < -50 || minRow < -50 || maxRow < -50) {
         document.getElementById("error-message").innerText = "All numbers must be between -50 and 50.";
         return;
     }
+
     
     // Validate if min values are less than max values, return an appropriate error message
     if (minCol > maxCol && minRow > maxRow) {
