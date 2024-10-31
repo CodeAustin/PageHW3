@@ -2,32 +2,23 @@
 
 This project is a dynamic webpage that allows users to generate a customizable multiplication table based on four numerical inputs: minimum and maximum values for rows and columns. The page is built with HTML, CSS, and JavaScript.
 
-## Features
+## Website Link
 
-1. **Form Input**: Users enter four values to set the minimum and maximum row and column ranges.
-2. **Error Handling**: The form validates input to ensure numbers are within the range of -50 to 50. An error message displays if input is invalid.
-3. **Multiplication Table Generation**: When "generate" button is pressed, the page generates a multiplication table based on the inputs.
-4. **Fixed Layout**:
-   - The input form is fixed to the left side of the page.
-   - The table is displayed to the right of the form, within a scrollable container.
-5. **Table Readability**:
-   - Alternating row colors enhance readability.
-   - Row and columns are highlighted to see values
 
-## How to Use
-1. **Enter Values**: In the form, specify the minimum and maximum values for rows and columns.
-2. **Generate Table**: Click the **Submit** button to generate the multiplication table.
-3. **View Table**: The table will appear in a scrollable area.
+## References
+### W3School's Reference for Forms in HTML: https://www.w3schools.com/html/html_forms.asp
 
-## File Structure
-- `index.html` - HTML file for the page.
-- `css/style.css` - CSS styles for layout, form, and table appearance.
-- `js/script.js` - JavaScript to handle input validation and table generation.
+### W3School's Reference for innerText: https://www.w3schools.com/jsref/prop_node_innertext.asp
 
-## Requirements
-- A modern web browser with JavaScript enabled.
+### W3School's Reference for innerHTML:  https://www.w3schools.com/jsref/prop_html_innerhtml.asp
 
-## Future Improvements
+### VERY Helpful Documentation for innerHTML works: https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
 
-- Allow dynamic range adjustment.
-- Improve responsiveness for smaller screens.
+### Tips and Tricks for using n-th Child: https://css-tricks.com/useful-nth-child-recipies/
+
+### StackOverflow Post for JavaScript Inspiration: https://stackoverflow.com/questions/34232688/for-loop-with-array-doesnt-work-with-innerhtml
+
+### StackOverflow Post on Fixing Bug using innerHTML:  https://stackoverflow.com/questions/12996763/innerhtml-with-for-loop-in-javascript?rq=3
+
+
+   

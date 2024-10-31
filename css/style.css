@@ -1,3 +1,18 @@
+/***
+File: style.css
+GUI Assignment: HW3
+Austin Nguyen, UMass Lowell, austin_nguyen@student.uml.edu
+Copyright (c) 2024. All rights reserved. May be freely copied or
+excerpted for educational purposes with credit to the author.
+
+Updated on October 29, 2021 by Austin Nguyen
+
+This file contains the CSS sheet used to style the HTML elements, mostly the table and form.
+Form styling itself is minimal, with most of the focus on the position of the containers in 
+relation to the table. Table styling is focused on the checkerboard pattern and adding scrolling
+functionally. The table headers are sticky, so they will always be visible when scrolling. The top-left
+cell covers the intersection of the row and column headers, for a more pleasant experience.
+***/
 body {
     font-family: Arial, sans-serif;
     margin: 10px;
@@ -29,12 +44,15 @@ body {
     left: 10px;
 }
 
+/* Styling for the form */
+/* Form container */
 .form-container h5 {
     margin: 10px 0 5px 0;
     font-size: small;
     font-style: italic;
 }
 
+/* Space between inputs */
 .form-group {
     margin-bottom: 15px;
 }
@@ -46,6 +64,7 @@ label {
     font-weight: bold;
 }
 
+/* Input fields */
 input[type="number"] {
     width: 100px;
     padding: 5px;
@@ -54,11 +73,13 @@ input[type="number"] {
     font-size: 16px;
 }
 
+/* Error message */
 .error {
     color: red;
     font-size: 14px;
 }
 
+/* Table container */
 #table-container {
     overflow: auto;
     width: 100%;
@@ -73,50 +94,56 @@ table {
     border-spacing: 0;
 }
 
-/* Set fixed square shape for all cells */
-#colHeader, #rowHeader, #value, #starValue {
+/* Table tag styling, see script.js for more information */
+/* Set square shape for all cells */
+#colHeader, #rowHeader, #value, #blankCell {
     padding: 0;
     border: none;
     text-align: center;
     width: 60px;
     height: 60px;
-    max-width: 60px;
-    max-height: 60px;
+    max-width: 60px; /* Unnecessary, but just in case */
+    max-height: 60px; /* Ditto */
 }
 
-/* Styling for the top-left corner cell */
-#starValue {
+/* Styling for the top-left corner cell, will cover scrolling  */
+#blankCell {
     background-color: #f3f4f6;
     position: sticky;
     top: 0;
     left: 0;
-    z-index: 15;
+    z-index: 3; /* Make sure it's on top */
 }
 
 /* Column headers */
 #colHeader {
     font-weight: bold;
-    background-color: blue;
+    background-color: #0044ff;
     color: white;
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 2;
 }
 
 /* Row headers */
 #rowHeader {
     font-weight: bold;
-    background-color: blue;
+    background-color:#0044FF;
     color: white;
     position: sticky;
     left: 0;
-    z-index: 9;
+    z-index: 1;
 }
 
-/* Checkerboard pattern for values */
+/* Checkerboard pattern for values, column headers, and row headers
+Reference: 
+https://css-tricks.com/useful-nth-child-recipies/
+ */
 #value {
     background-color: #FFFFFF;
 }
+
+/* Checkerboard pattern for values */
 table tr:nth-child(odd) #value:nth-child(even),
 table tr:nth-child(even) #value:nth-child(odd) {
     background-color: #D0E9FF;
@@ -125,12 +152,12 @@ table tr:nth-child(even) #value:nth-child(odd) {
 /* Checkerboard pattern for column headers */
 table tr:nth-child(odd) #colHeader:nth-child(even),
 table tr:nth-child(even) #colHeader:nth-child(odd) {
-    background-color: #007BFF;
+    background-color: #002bb6;
 }
 /* Checkerboard pattern for row headers */
 table tr:nth-child(odd) #rowHeader:nth-child(even),
 table tr:nth-child(even) #rowHeader:nth-child(odd) {
-    background-color: #007BFF;
+    background-color: #002bb6;
 }
 
 
