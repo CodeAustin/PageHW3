@@ -3,7 +3,7 @@
 This project is a dynamic webpage that allows users to generate a customizable multiplication table based on four numerical inputs: minimum and maximum values for rows and columns. The page is built with HTML, CSS, and JavaScript.
 
 ## Website Link
-
+### https://codeaustin.github.io/PageHW3/
 
 ## References
 ### W3School's Reference for Forms in HTML: https://www.w3schools.com/html/html_forms.asp

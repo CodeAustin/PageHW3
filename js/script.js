@@ -55,10 +55,14 @@ function generateTable() {
     if (minCol > maxCol && minRow > maxRow) {
         document.getElementById("error-message").innerText = "Minimum values must be less than maximum values.";
         return;
-    } else if (minCol > maxCol ) {
+    }
+    
+    if (minCol > maxCol ) {
         document.getElementById("error-message").innerText = "Minimum column values must be less than maximum values.";
         return;
-    } else  if (minRow > maxRow ) {
+    } 
+    
+    if (minRow > maxRow ) {
         document.getElementById("error-message").innerText = "Minimum row values must be less than maximum values.";
         return;
     }
